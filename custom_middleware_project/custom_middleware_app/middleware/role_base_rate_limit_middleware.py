@@ -42,7 +42,9 @@ class RoleBasedRateLimitMiddleware:
         request_times = cache.get(cache_key, [])
 
         current_time = time.time()
-        request_times = [time for time in request_times if current_time - time < self.BLOCK_DURATION]
+        request_times = [
+            time for time in request_times if current_time - time < self.BLOCK_DURATION
+        ]
 
         if len(request_times) >= limit:
             return JsonResponse({

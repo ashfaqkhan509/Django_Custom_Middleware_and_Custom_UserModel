@@ -18,14 +18,16 @@ class RateLimitMiddleware:
         self.BLOCK_DURATION = 60
 
     def __call__(self, request):
-        
+
         ip_address = request.META.get('REMOTE_ADDR')
         cache_key = f'rate_limit_{ip_address}'
 
         request_history = cache.get(cache_key, [])
         current_time = time.time()
 
-        request_history = [time for time in request_history if current_time - time < self.BLOCK_DURATION]
+        request_history = [
+            time for time in request_history if current_time - time < self.BLOCK_DURATION
+        ]
 
         if len(request_history) >= self.RATE_LIMIT:
             return JsonResponse({
@@ -35,5 +37,5 @@ class RateLimitMiddleware:
         request_history.append(current_time)
         cache.set(cache_key, request_history, self.BLOCK_DURATION)
         response = self.get_response(request)
-        
+
         return response

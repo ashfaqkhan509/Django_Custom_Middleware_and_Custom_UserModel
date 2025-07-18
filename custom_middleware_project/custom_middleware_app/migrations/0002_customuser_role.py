@@ -13,6 +13,10 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='customuser',
             name='role',
-            field=models.CharField(choices=[('gold', 'Gold'), ('silver', 'Silver'), ('bronze', 'Bronze')], default='bronze', max_length=10),
+            field=models.CharField(choices=[
+                ('gold', 'Gold'),
+                ('silver', 'Silver'),
+                ('bronze', 'Bronze')
+            ], default='bronze', max_length=10),
         ),
     ]

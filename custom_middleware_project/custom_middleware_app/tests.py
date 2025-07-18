@@ -46,7 +46,7 @@ class RateLimitMiddlewareTest(TestCase):
             return HttpResponse("OK")
 
         self.middleware = RateLimitMiddleware(get_response)
-        
+
         cache.clear()
 
     def test_allows_requests_under_limit(self):
