@@ -25,12 +25,9 @@ jobs:
       - name: Run flake8
         run: |
           flake8 . --max-line-length=100
+
   unit-tests:
     runs-on: ubuntu-latest
-
-    defaults:
-      run:
-        working-directory: Django_Custom_Middleware_and_Custom_UserModel/custom_middleware_project
 
     steps:
       - name: Checkout code
