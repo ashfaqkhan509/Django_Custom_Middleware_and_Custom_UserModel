@@ -39,5 +39,5 @@ jobs:
 
       - name: Run Tests
         run: |
-          cd Django_Custom_Middleware_and_Custom_UserModel
+          cd Django_Custom_Middleware_and_Custom_UserModel/custom_middleware_project
           python manage.py test
