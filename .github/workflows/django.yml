@@ -28,6 +28,10 @@ jobs:
   unit-tests:
     runs-on: ubuntu-latest
 
+    defaults:
+      run:
+        working-directory: Django_Custom_Middleware_and_Custom_UserModel/custom_middleware_project
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -37,12 +41,6 @@ jobs:
         with:
           python-version: '3.10.11'
 
-      - name: Debug paths
-        run: |
-          pwd
-          ls -R
-
       - name: Run Tests
         run: |
-          cd Django_Custom_Middleware_and_Custom_UserModel/custom_middleware_project
           python manage.py test
