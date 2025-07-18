@@ -3,6 +3,7 @@ import logging
 
 logger = logging.getLogger(__name__)
 
+
 # Logging Middleware
 class RequestLoggerMiddleware:
     def __init__(self, get_response):

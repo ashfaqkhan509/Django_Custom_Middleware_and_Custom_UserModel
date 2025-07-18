@@ -30,7 +30,8 @@ class Migration(migrations.Migration):
                 )),
                 ('is_superuser', models.BooleanField(
                     default=False,
-                    help_text='Designates that this user has all permissions without explicitly assigning them.',
+                    help_text=f'Designates that this user has all'
+                    f'permissions without explicitly assigning them.',
                     verbose_name='superuser status'
                 )),
                 ('email', models.EmailField(max_length=254, unique=True)),
@@ -41,8 +42,8 @@ class Migration(migrations.Migration):
                 ('date_joined', models.DateTimeField(default=django.utils.timezone.now)),
                 ('groups', models.ManyToManyField(
                     blank=True,
-                    help_text='The groups this user belongs to.' \
-                    'A user will get all permissions granted to each of their groups.',
+                    help_text=f'The groups this user belongs to.'
+                    f'A user will get all permissions granted to each of their groups.',
                     related_name='user_set',
                     related_query_name='user',
                     to='auth.group',
